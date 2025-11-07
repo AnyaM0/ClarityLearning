@@ -1,0 +1,609 @@
+/* Importing Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --primary-color: #C06B3E;
+  --secondary-color: #000000;
+  --background-color: #ffffff;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  z-index: 1000;
+}
+
+header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar .logo {
+  color: var(--background-color);
+  font-weight: 600;
+  font-size: 2.1rem;
+  text-decoration: none;
+}
+
+.navbar .logo span {
+  color: var(--primary-color);
+}
+
+.navbar .menu-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.navbar a {
+  color: var(--background-color);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+.hero-section {
+  height: 100vh;
+  background-image: url("https://cdn.glitch.global/c63b5c3f-8ba7-4a6a-af3c-bae94a101a72/Dise%C3%B1o%20sin%20t%C3%ADtulo.png?v=1715892639357");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.hero-section .content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-section .content h2 {
+  font-size: 3rem;
+  max-width: 600px;
+  line-height: 70px;
+  color: var(--background-color);
+}
+
+.hero-section .content p {
+  font-weight: 300;
+  max-width: 600px;
+  margin-top: 15px;
+  color: var(--background-color);
+}
+
+.hero-section .content button {
+  background: var(--background-color);
+  color: var(--secondary-color);
+  padding: 12px 30px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  margin-top: 38px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.hero-section .content button:hover {
+  color: var(--background-color);
+  background: var(--primary-color);
+}
+
+#close-menu-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  display: none;
+}
+#hamburger-btn {
+  color: var(--background-color);
+  cursor: pointer;
+  display: block; /* Asegura que el botón sea visible */
+  z-index: 1001; /* Asegura que esté por encima del contenido */
+}
+
+
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+
+  header.show-mobile-menu::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: -1;
+  }
+
+  .navbar .logo {
+    font-size: 1.7rem;
+  }
+
+  #hamburger-btn, #close-menu-btn {
+    display: block;
+    
+  }
+
+  .navbar .menu-links {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background: var(--background-color);
+    flex-direction: column;
+    padding: 70px 40px 0;
+    transition: left 0.2s ease;
+  }
+
+  header.show-mobile-menu .navbar .menu-links {
+    left: 0;
+  }
+
+  .navbar a {
+    color: var(--background-color);
+  }
+
+  .hero-section .content {
+    text-align: center;
+  }
+
+  .hero-section .content :is(h2, p) {
+    max-width: 100%;
+  }
+
+  .hero-section .content h2 {
+    font-size: 2.3rem;
+    line-height: 60px;
+  }
+
+  .hero-section .content button {
+    padding: 9px 18px;
+  }
+}
+
+/* About Section */
+.about {
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about .about-img img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Añade una sombra alrededor de la imagen */
+}
+
+.about .about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color); /* Cambia el color del título */
+}
+
+.about .about-text p {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--secondary-color); /* Cambia el color del texto */
+  line-height: 1.6; /* Aumenta el espacio entre líneas para una mejor legibilidad */
+}
+
+.about .about-text .btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 15px 30px; /* Aumenta el tamaño del botón */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.about .about-text .btn:hover {
+  background: var(--secondary-color);
+  color: var(--background-color);
+}
+
+/* Products Section */
+.products {
+  padding: 100px 20px;
+  background-color: #f9f9f9;
+  color: var(--secondary-color);
+  text-align: center; /* Añadido para centrar el contenido */
+}
+
+.products .heading {
+  margin-bottom: 50px;
+}
+
+.products .heading h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.products .products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Añadido para centrar los productos */
+  gap: 40px;
+}
+
+.products .box {
+  background-color: var(--background-color);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  flex: 0 1 300px; /* Añadido para controlar el ancho de los productos */
+  
+}
+
+.products .box img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.products .box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.products .box .content {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.products .box .content span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.products .box .content a {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.products .box .content a:hover {
+  background: var(--secondary-color);
+  color: var(--background-color);
+}
+
+/* Customers Section */
+.customers {
+  padding: 100px 20px;
+}
+
+.customers .heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.customers .heading h2 {
+  font-size: 2.5rem;
+}
+
+.customers .customers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.customers .box {
+  background-color: var(--background-color);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.customers .box img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.customers .box h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.customers .box .stars {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.customers .box p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Footer Section */
+.footer {
+  background-color: #f0f0f0;
+  color: var(--secondary-color);
+  padding: 50px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Agrega espacio entre los elementos del footer */
+}
+
+.footer .footer-box {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px; /* Limita el ancho máximo de las cajas del footer */
+}
+
+.footer .footer-box h2, .footer .footer-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.footer .footer-box p, .footer .footer-box li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Añade estilos al enlace del footer */
+.footer .footer-box a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer .footer-box a:hover {
+  color: var(--primary-color); /* Cambia el color al pasar el mouse */
+}
+
+/* Añade estilos a la lista del footer */
+.footer .footer-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Añade estilos al formulario de suscripción */
+.footer .footer-box form {
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-box form input[type="email"] {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.footer .footer-box form button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer .footer-box form button:hover {
+  background-color: var(--secondary-color); /* Cambia el color al pasar el mouse */
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .navbar .menu-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--secondary-color);
+    flex-direction: column;
+    padding: 70px 40px 0;
+    transition: left 0.2s ease;
+  }
+
+  header.show-mobile-menu .navbar .menu-links {
+    left: 0;
+  }
+}
+
+/* Additional styling for product section hover effect */
+.products .box:hover, .customers .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Copyright Section */
+.copyright {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #111111;
+  color: var(--background-color);
+  font-size: 1rem;
+}
+
+/* Estilos para el contenedor del asistente virtual */
+#assistant-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Estilos para el contenedor del globo del asistente */
+#assistant-bubble-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1; /* Asegura que el globo esté encima del chat */
+}
+
+/* Estilos para el globo del asistente */
+#assistant-bubble {
+  position: absolute;
+  bottom: 60px;
+  right: -20px;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(192, 107, 62, 0.8); /* Café con opacidad */
+  color: #ffffff; /* Blanco para el texto */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Oculta el globo cuando está marcado como oculto */
+#assistant-bubble.hidden {
+  display: none;
+}
+
+/* Estilos para el área de chat */
+#assistant-chat {
+  width: 300px;
+  height: 350px; /* Cambiado a la altura original */
+  background-color: rgba(255, 255, 255, 0.9); /* Blanco con opacidad */
+  border: 1px solid rgba(192, 107, 62, 0.8); /* Café con opacidad para el borde */
+  border-radius: 10px;
+  overflow-y: auto;
+  display: none;
+  font-family: "Poppins", sans-serif; /* Cambio de fuente */
+}
+
+
+/* Estilos para el área de mensajes del chat */
+#chat-messages {
+  padding: 10px;
+  max-height: calc(100% - 80px); /* Ajustar según el tamaño del chat */
+  overflow-y: auto; /* Agregar desplazamiento vertical cuando sea necesario */
+}
+
+
+/* Estilos para el área de entrada de mensajes */
+#message-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 2px); /* Cambiado de 100% a calc(100% - 2px) */
+  background-color: rgba(255, 255, 255, 0.9); /* Blanco con opacidad */
+  border-top: 1px solid rgba(192, 107, 62, 0.8); /* Café con opacidad para el borde superior */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Estilos para el campo de entrada de mensajes del usuario */
+#user-input {
+  width: calc(100% - 80px);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(245, 245, 220, 0.9); /* Beige con opacidad */
+  color: #333333; /* Marrón oscuro para el texto */
+  font-size: 16px;
+  font-family: "Poppins", sans-serif; /* Cambria como fuente */
+}
+
+/* Estilos para el botón de enviar mensaje */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(192, 107, 62, 0.8); /* Café con opacidad */
+  color: #ffffff; /* Blanco */
+  font-size: 16px;
+  font-family: "Poppins", sans-serif; /* Cambria como fuente */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(160, 82, 45, 0.8); /* Marrón más oscuro al pasar el mouse */
+}
+
+/* Estilos para los mensajes del usuario */
+.user-message {
+  background-color: rgba(245, 245, 220, 0.9); /* Beige con opacidad */
+  color: #333333; /* Marrón oscuro para el texto */
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los mensajes del asistente (bot) */
+.bot-message {
+  background-color: rgba(255, 255, 255, 0.9); /* Blanco con opacidad */
+  color: #333333; /* Marrón oscuro para el texto */
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+/* Estilos para el botón de minimizar el chat */
+#minimize-chat-button {
+  position: absolute;
+  top: 5px; /* Distancia desde la parte superior */
+  right: 5px; /* Distancia desde la derecha */
+  width: 25px; /* Ancho del botón */
+  height: 25px; /* Altura del botón */
+  padding: 0; /* Eliminamos el padding para hacer el botón más pequeño */
+  border: none;
+  border-radius: 50%; /* Hacemos el botón redondeado */
+  background-color: rgba(192, 107, 62, 0.8); /* Café con opacidad */
+  color: #ffffff; /* Blanco */
+  font-size: 14px; /* Reducimos el tamaño de la fuente */
+  font-family: "Poppins", sans-serif; /* Cambria como fuente */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#minimize-chat-button:hover {
+  background-color: rgba(160, 82, 45, 0.8); /* Marrón más oscuro al pasar el mouse */
+}
